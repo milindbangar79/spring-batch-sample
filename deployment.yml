@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: billrun-jdk11-sql
+spec:
+  restartPolicy: Never
+  containers:
+    - name: task
+      image: springbatch-jdk11/spring-batch-bill:1.0.2-SNAPSHOT
+      env:
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: mysql-root-password
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql:3306/task
+        - name: SPRING_DATASOURCE_USERNAME
+          value: root
+        - name: SPRING_DATASOURCE_DRIVER_CLASS_NAME
+          value: com.mysql.cj.jdbc.Driver
+  initContainers:
+    - name: init-mysql-database
+      image: mysql:5.6
+      env:
+        - name: MYSQL_PWD
+          valueFrom:
+            secretKeyRef:
+              name: mysql
+              key: mysql-root-password
+      command:
+        [
+          'sh',
+          '-c',
+          'mysql -h mysql -u root -e "CREATE DATABASE IF NOT EXISTS task;"',
+        ]

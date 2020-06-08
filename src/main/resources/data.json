@@ -1,0 +1,37 @@
+[
+   {
+      "Id":"1",
+      "firstName":"jane",
+      "lastName":"doe",
+      "mins":"500",
+      "dataUsage":"1000"
+   },
+   {
+      "Id":"2",
+      "firstName":"john",
+      "lastName":"doe",
+      "mins":"550",
+      "dataUsage":"1500"
+   },
+   {
+      "Id":"3",
+      "firstName":"melissa",
+      "lastName":"smith",
+      "mins":"600",
+      "dataUsage":"1550"
+   },
+   {
+      "Id":"4",
+      "firstName":"michael",
+      "lastName":"smith",
+      "mins":"650",
+      "dataUsage":"1500"
+   },
+   {
+      "Id":"5",
+      "firstName":"mary",
+      "lastName":"jones",
+      "mins":"700",
+      "dataUsage":"1500"
+   }
+]
